@@ -9,9 +9,14 @@ async function main() {
     new ValidationPipe({
       whitelist: true,
       forbidNonWhitelisted: true,
+      transform:true,
+      transformOptions:{
+        enableImplicitConversion:true
+      }
     })
   );
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT);
+  console.log(`App running on port ${process.env.PORT}`)
 }
 main();
